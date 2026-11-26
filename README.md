@@ -11,12 +11,14 @@ page-node AI translation.
 
 ## Latest release / 最新版本
 
-- [GitHub Release 1.8](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/tag/v1.8)
-- [Windows EXE 1.8](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.8/eScriptorium-Studio-Setup-EN-ZH-v1.8.exe)
-- [Complete package 1.8](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.8/eScriptorium-Studio-Bilingual-Windows-v1.8.zip)
-- [Source and documentation 1.8](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.8/eScriptorium-Studio-Source-and-Docs-v1.8.zip)
-- [Release notes 1.8](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.8/RELEASE-NOTES-v1.8-EN-ZH.md)
-- [SHA-256](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.8/SHA256SUMS-v1.8-RELEASE.txt)
+- [GitHub Release 1.9](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/tag/v1.9)
+- [Windows EXE 1.9](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.9/eScriptorium-Studio-Setup-EN-ZH-v1.9.exe)
+- [Complete package 1.9](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.9/eScriptorium-Studio-Bilingual-Windows-v1.9.zip)
+- [Source and documentation 1.9](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.9/eScriptorium-Studio-Source-and-Docs-v1.9.zip)
+- [Release notes 1.9](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.9/RELEASE-NOTES-v1.9-EN-ZH.md)
+- [Optional OCR component notices](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.9/OCR-COMPONENTS-NOTICE-EN-ZH.md)
+- [Bilingual README](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.9/README-EN-ZH.md)
+- [Word sample](https://github.com/xiantinghuang52-star/escriptorium-studio/releases/download/v1.9/eScriptorium-Studio-Word-Sample-v1.9.docx)
 
 ## Highlights
 
@@ -24,6 +26,10 @@ page-node AI translation.
 - Use an embedded WebView2 mirror of the local eScriptorium page.
 - Select an eScriptorium Recognition/HTR model and upload Kraken `.mlmodel` files.
 - Submit text-line segmentation and HTR for the document open in the mirror.
+- Run a dedicated printed-text OCR workflow through Umi-OCR or Tesseract.
+- Install optional Umi-OCR and Tesseract components from inside the EXE.
+- Process scanned PDFs and native-text PDFs page by page through Umi's OCR API.
+- Export a native Word document with original, cleansed and translated text.
 - Import ALTO XML and PAGE XML with line numbers and coordinate boxes.
 - Generate page-node contextual cleansing and aligned English translations.
 - Use language-aware handling for OCR confusion among `l`, `f`, `s` and `ſ`.
@@ -36,6 +42,10 @@ page-node AI translation.
 - 使用 WebView2 内嵌本地 eScriptorium 页面。
 - 选择 eScriptorium Recognition/HTR 模型，并上传 Kraken `.mlmodel`。
 - 对镜像中当前打开的文档提交文本行检测和 HTR。
+- 使用 Umi-OCR 或 Tesseract 运行独立的印刷文本 OCR 流程。
+- 在 EXE 内一键下载安装 Umi-OCR 与 Tesseract。
+- 通过 Umi OCR 接口逐页处理扫描 PDF 或带文本层的 PDF。
+- 一键导出包含原文、清洗文和译文三段内容的原生 Word 文档。
 - 导入带行号和坐标框的 ALTO XML、PAGE XML。
 - 按页生成语境清洗和逐行对齐的英文译文。
 - 针对 `l`、`f`、`s`、`ſ` 的 OCR 混淆进行语言感知消歧。

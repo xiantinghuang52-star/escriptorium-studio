@@ -1,12 +1,110 @@
 # eScriptorium Studio · EN / 中文
 
-`eScriptorium-Studio-Setup-EN-ZH-v1.6.exe` is a portable Windows installer and
+`eScriptorium-Studio-Setup-EN-ZH-v1.9.exe` is a portable Windows installer and
 coordinate-aware manuscript workbench for eScriptorium.
 
-`eScriptorium-Studio-Setup-EN-ZH-v1.6.exe` 是一个便携式 Windows 安装器与
+`eScriptorium-Studio-Setup-EN-ZH-v1.9.exe` 是一个便携式 Windows 安装器与
 坐标感知手稿工作台，用于部署和使用 eScriptorium。
 
-## Version 1.6
+## Version 1.9
+
+- Added a one-click **Export Word** action that creates a native `.docx`.
+- Every line keeps three separate texts: original transcription, cleansed
+  transcription and aligned translation.
+- Word output groups rows by manuscript page and appends page-level contextual
+  cleanse/translation plus a short text-analysis summary.
+- Added a dedicated **Printed-text OCR** module with Umi-OCR HTTP and optional
+  Tesseract CLI backends. OCR text, page numbers and four-corner boxes are
+  converted into coordinate-aware manuscript rows.
+- Added one-click Umi-OCR/Tesseract installation with SHA-256 verification and
+  native PDF processing through Umi-OCR's document API.
+- Added device checks for ARM tablets, memory and free disk before local Docker
+  deployment.
+- Handwriting remains available through the separate eScriptorium mirror and
+  HTR Recognition workflow.
+- Fixed the Word Open XML schema structure so native `.docx` files validate and
+  open in desktop Microsoft Word.
+- Added an English/Chinese workflow guide covering Word/CSV/TEI annotation,
+  follow-up corpus analysis and OCR/HTR processing.
+- Includes a ready-to-inspect Word sample in `samples/`.
+
+## 1.9 版本
+
+- 新增一键 **导出 Word**，直接生成原生 `.docx`。
+- 每一行分别保留原文、清洗文和对照译文三种文字。
+- Word 文档按手稿页分组，并在每页后附语境清洗、整页译文及基础文本分析摘要。
+- 新增独立的 **印刷文本 OCR** 板块，支持 Umi-OCR HTTP 和可选 Tesseract CLI；
+  识别文字、页码及四角坐标会转换为带坐标的手稿行。
+- 新增 Umi-OCR/Tesseract 一键安装和 SHA-256 校验，并通过 Umi 文档接口
+  直接处理 PDF。
+- 本机 Docker 部署前会检查 ARM 平板、内存和可用磁盘。
+- 手写材料继续使用独立的 eScriptorium 镜像与 HTR Recognition 流程。
+- 修复 Word Open XML 架构结构；原生 `.docx` 已通过验证并可在 Word 中打开。
+- 软件内“工作流说明”新增中英文 Word/CSV/TEI 标注、后续文本分析和 OCR/HTR 使用指引。
+- `samples/` 中提供可直接打开的 Word 示例。
+
+### Version 1.8 history
+
+- Added an embedded **eScriptorium mirror** using WebView2.
+- The local eScriptorium page can be used inside the application.
+- HTR Recognition models are listed from the eScriptorium API and saved in a
+  selector.
+- `.mlmodel` files can be uploaded directly from the application.
+- The current document ID and transcription layers are detected from the mirror URL.
+- Segmentation and HTR tasks can be submitted for the current document.
+- WebView2 managed assemblies and the native loader are embedded in the EXE.
+- If embedded WebView2 is unavailable, the app offers “Open in Edge”.
+
+The mirror page uses the saved administrator username/password to obtain a local
+eScriptorium API token. Signing into the embedded page is still required for
+normal editing.
+
+### 1.8 版本记录
+
+- 使用 WebView2 新增 **eScriptorium 镜像**。
+- 可以直接在软件中操作本地 eScriptorium 页面。
+- 从 eScriptorium API 读取 HTR Recognition 模型，并保存模型选择。
+- 可在软件内直接上传 `.mlmodel`。
+- 从镜像 URL 自动识别当前文档 ID 和转录层。
+- 可为当前文档提交文本行检测与 HTR 任务。
+- WebView2 托管程序集和 native loader 已嵌入 EXE。
+- 如果嵌入 WebView2 不可用，可改用“在 Edge 打开”。
+
+镜像使用本机已保存的 eScriptorium 管理员凭据获取 API Token；正常编辑仍需要在
+嵌入页面中登录。
+
+### Version 1.7 history
+
+- Added a **Processing groups** workspace.
+- Groups support manual page ranges or automatic one-page-per-group creation.
+- Group definitions, target languages, concurrency and last results are saved
+  to `processing-project.json`.
+- A group batch queue supports run selected, run all, pause after the current
+  group, stop and retry.
+- Added Laptop, Standard and Workstation page concurrency tiers.
+- Group processing reuses the page-node cleanse/translation pipeline while
+  preserving page numbers, line IDs and coordinate boxes.
+
+Important: this release queues AI cleansing, page translation and analysis of
+already recognized lines. It does not yet submit segmentation, HTR or model
+training jobs to the eScriptorium server API. HTR must still be completed in
+eScriptorium before importing ALTO/PAGE XML.
+
+### 1.7 版本记录
+
+- 新增 **分组处理** 工作区。
+- 支持手动页码范围，也可以自动按每页建立分组。
+- 分组名称、页码范围、目标语言、并发数及上次结果保存到
+  `processing-project.json`。
+- 分组批处理支持运行当前、运行全部、当前分组结束后暂停、停止和重试。
+- 新增笔记本、标准、工作站三档页面并发。
+- 分组处理复用按页清洗/翻译流程，同时保留页码、行号和坐标框。
+
+注意：本版本排队执行的是已识别文本的 AI 清洗、按页翻译和分析；尚未向
+eScriptorium 服务器 API 提交区域检测、HTR 或模型训练任务。HTR 仍需先在
+eScriptorium 完成，再导入 ALTO/PAGE XML。
+
+### Version 1.6 history
 
 - Language-aware cleansing now treats OCR `l`, `f`, `s` and long s `ſ` as
   potentially ambiguous rather than a global substitution.
@@ -19,7 +117,7 @@ coordinate-aware manuscript workbench for eScriptorium.
   requested when supported, reducing latency.
 - Page translation and contextual cleanse punctuation are normalized.
 
-## 1.6 版本
+### 1.6 版本记录
 
 - 语境清洗把 OCR 的 `l`、`f`、`s` 和长 s `ſ` 视为潜在混淆项，而不是全局替换。
 - AI 页面提示词会结合检测语言、功能词、词法和相邻行判断可疑词。
@@ -171,7 +269,7 @@ Docker Desktop 有独立的订阅条款。程序在下载和安装 Docker 前会
 
 ## First run
 
-1. Start `eScriptorium-Studio-Setup-EN-ZH-v1.6.exe`.
+1. Start `eScriptorium-Studio-Setup-EN-ZH-v1.9.exe`.
 2. Choose **Install & run / 安装与运行**.
 3. Review and check the Docker terms box.
 4. Choose **Install & start / 安装并启动** and approve the Windows UAC prompt.
@@ -186,7 +284,7 @@ Docker Desktop 有独立的订阅条款。程序在下载和安装 Docker 前会
 
 ## 首次使用
 
-1. 启动 `eScriptorium-Studio-Setup-EN-ZH-v1.6.exe`。
+1. 启动 `eScriptorium-Studio-Setup-EN-ZH-v1.9.exe`。
 2. 进入“安装与运行”。
 3. 阅读并勾选 Docker 条款。
 4. 点击“安装并启动”，在 Windows UAC 提示中批准。
@@ -197,6 +295,34 @@ Docker Desktop 有独立的订阅条款。程序在下载和安装 Docker 前会
 8. 新建文档并上传手稿图像或 PDF，执行区域检测与 HTR，然后导出 ALTO XML 或
    PAGE XML。
 9. 在“手稿工作台”导入该导出文件。
+
+## Printed-text OCR / 印刷文本 OCR
+
+For printed books, Fraktur, typescript and modern print, open **Printed-text
+OCR** in the left navigation. Use **Install Umi-OCR** or **Install Tesseract**
+for the integrated one-click setup, or enter an existing executable. Select
+Umi-OCR HTTP or Tesseract CLI, verify the language/model, select page images or
+a PDF, and choose **Run printed OCR**. Umi handles multi-page PDF documents and
+must be running with its HTTP service enabled; the default endpoint is
+`http://127.0.0.1:1224`. OCR rows retain page, line and coordinate information.
+Handwritten Kurrent should continue to use **eScriptorium mirror** and an HTR
+Recognition model.
+
+印刷书籍、Fraktur、打字稿和现代印刷文本请打开左侧 **印刷文本 OCR**。选择
+Umi-OCR HTTP 或 Tesseract CLI，也可以点击“安装 Umi-OCR”或“安装 Tesseract”
+完成集成的一键安装。确认语言/模型后添加页面图像或 PDF，再点击“运行印刷 OCR”。
+Umi 可直接处理多页 PDF，但需要启用 HTTP 服务，默认地址为
+`http://127.0.0.1:1224`。识别结果会连同页码、行号和坐标加入手稿工作台。
+Kurrent 等手写材料仍应使用 **eScriptorium 镜像** 和 HTR Recognition 模型。
+
+## Non-commercial attribution
+
+The workflow design was informed by Archive Studio (Mark Humphries and
+Lianne C. Leddy, CC BY-NC 4.0). This project does not copy its source code.
+Umi-OCR is an optional external local OCR backend and is not bundled in v1.9.
+
+本项目的同屏工作流设计参考了 Archive Studio（CC BY-NC 4.0），未复制其源代码。
+Umi-OCR 是可独立安装的本地 OCR 后端，v1.9 未直接打包其程序文件。
 
 ## AI cleaning and aligned translation
 
